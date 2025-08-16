@@ -1,8 +1,18 @@
 import Image from "next/image";
 import { AiFillLike } from "react-icons/ai";
 import { FaCalendar } from "react-icons/fa";
+interface BlogS {
+  id: string;
+  title: string;
+  description: string;
+  publish_date: string; // ISO date string, e.g., "2024-03-01"
+  author_name: string;
+  blog_image: string; // URL string
+  total_likes: string | number; // can be string or number depending on API
+}
 
-const BlogDetails = ({ blog }) => {
+
+const BlogDetails = ({ blog } : {blog : BlogS}) => {
   return (
     <div className="card w-2/3 bg-base-100 shadow-xl mx-auto">
       <p className="flex items-center justify-center mx-auto text-accent bg-cyan-100 w-44 px-2 py-1 rounded-full">
@@ -13,7 +23,7 @@ const BlogDetails = ({ blog }) => {
       <div className="avatar items-center justify-center bg-slate-100 mb-5 py-5 rounded-lg text-2xl">
         <div className="w-8 mr-1 rounded-full">
           <Image
-            src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+            src="https://imgs.search.brave.com/lciNzIAJ_wsLWxVVJs1AhWWwGeFglFW9SygtC4e65PQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvNTAwcC8z/MS83OS9ob3AtZW1i/bGVtLWJlYXJkLW1h/bi12ZWN0b3ItOTM5/MzE3OS5qcGc"
             width={100}
             height={100}
             alt="author image"

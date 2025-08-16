@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { AiFillLike } from "react-icons/ai";
 import { FaCalendar } from "react-icons/fa";
+import { BlogS } from "..";
 
-const BlogCard = ({ blog }) => {
+const BlogCard = ({ blog } : {blog : BlogS}) => {
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <figure>
@@ -37,7 +38,7 @@ const BlogCard = ({ blog }) => {
           <div className="avatar items-center">
             <div className="w-8 mr-1 rounded-full">
               <Image
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src="https://imgs.search.brave.com/lciNzIAJ_wsLWxVVJs1AhWWwGeFglFW9SygtC4e65PQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvNTAwcC8z/MS83OS9ob3AtZW1i/bGVtLWJlYXJkLW1h/bi12ZWN0b3ItOTM5/MzE3OS5qcGc"
                 width={100}
                 height={100}
                 alt="author image"
