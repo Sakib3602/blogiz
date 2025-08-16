@@ -10,6 +10,7 @@ const NotFoundPage = () => {
         alt="not found page"
         className="w-full"
       />
+     <h1 className="text-center text-4xl ">Page Not Found</h1>
     </div>
   );
 };

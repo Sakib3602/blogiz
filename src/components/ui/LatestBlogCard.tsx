@@ -2,8 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { AiFillLike } from "react-icons/ai";
 import { FaCalendar } from "react-icons/fa";
-
-const LatestBlogCard = ({ blog }) => {
+interface BlogS {
+  id: string;
+  title: string;
+  description: string;
+  publish_date: string; // ISO date string, e.g., "2024-03-01"
+  author_name: string;
+  blog_image: string; // URL string
+  total_likes: string | number; // can be string or number depending on API
+}
+const LatestBlogCard = ({ blog } : {blog : BlogS}) => {
   return (
     <div key={blog.id} className="card w-full bg-base-100 shadow-xl">
       <figure>
