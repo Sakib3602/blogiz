@@ -1,4 +1,6 @@
+"use client";
 import BlogCard from "@/components/ui/BlogCard";
+import { useGetBlogsQuery } from "@/redux/api/baseApi";
 import React from "react";
 interface BlogS {
   id: string;
@@ -9,15 +11,15 @@ interface BlogS {
   blog_image: string; // URL string
   total_likes: string | number; // can be string or number depending on API
 }
-const BlogAllPage = async () => {
-  const res = await fetch("http://localhost:3001/blogs", {
-    cache: "no-store",
-  });
-  const blogs = await res.json();
-  console.log(blogs);
+const BlogAllPage =  () => { //async korte hobe jodi server side rendering korte hoy
+  // const res = await fetch("http://localhost:3001/blogs", {
+  //   cache: "no-store",
+  // });
+  // const blogs = await res.json();
+  const {data : blogs , isLoading} = useGetBlogsQuery("");
   return (
     <div className="grid grid-cols-2 py-10 gap-4 mx-auto w-[90%]">
-      {blogs.map((blog: BlogS) => (
+      {blogs?.map((blog: BlogS) => (
         <BlogCard key={blog.id} blog={blog}></BlogCard>
       ))}
     </div>
